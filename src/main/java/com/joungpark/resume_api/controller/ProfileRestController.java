@@ -33,13 +33,13 @@ public class ProfileRestController {
 //		return profileService.getProfile(userId);
 //	}
 	
-	@RequestMapping("/resume-api/profile/read")
+	@RequestMapping("/profile/read")
 	public Profile getProfile(@RequestParam("userId") String userId) {
 		System.out.println("getProfile RequestParam: " + userId);
 		return profileService.getProfile(userId);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/resume-api/profile/update")
+	@RequestMapping(method = RequestMethod.PUT, value = "/profile/update")
 	public void updateProfile(@RequestBody Profile profile) {
 		System.out.println("updateProfile : " + profile);
 		profileService.updateProfile(profile);
