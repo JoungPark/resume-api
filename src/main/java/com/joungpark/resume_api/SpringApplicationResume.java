@@ -7,18 +7,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 
 import com.joungpark.resume_api.model.KeySkill;
 import com.joungpark.resume_api.model.Profile;
 import com.joungpark.resume_api.repository.ProfileRepository;
 
 @SpringBootApplication
-public class App implements CommandLineRunner
+public class SpringApplicationResume implements CommandLineRunner
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(SpringApplicationResume.class, args);
     }
+
+    // @Configuration
+    // @EnableWebSecurity
+    // @EnableGlobalMethodSecurity(prePostEnabled = true)
+    // protected static class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    //     @Override
+    //     protected void configure(HttpSecurity http) throws Exception {
+    //         http
+    //         .anonymous() //allow anonymous access
+    //         .and()
+    //         .authorizeRequests()
+    //         .antMatchers("/profile/read").permitAll()
+    //         .anyRequest().authenticated()
+    //         .and()
+    //         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
+    //         ;
+    //     }
+    // }
     
     @Override
 	public void run(String... args) throws Exception {
